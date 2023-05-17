@@ -1,0 +1,19 @@
+{
+	"name": "rpsauth",
+	"version": "1.0.0",
+	"description": "Rock-Paper-Scissor Auth - Truly disruptive authentication",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"keywords": [
+		"express",
+		"middleware",
+		"authentication"
+	],
+	"author": "Tamas Bürger",
+	"license": "MIT",
+	"devDependencies": {
+		"jest": "^29.5.0"
+	}
+}
