@@ -4,7 +4,7 @@ const { options, combinations } = require("../lib/helpers");
 describe("rpsAuth", () => {
 	it("should throw an error if 'rps' is missing from the request", () => {
 		const mockRequest = {
-			query: {},
+			headers: {},
 		};
 
 		expect(() => {
@@ -19,8 +19,8 @@ describe("rpsAuth", () => {
 	it("should throw an error if the server wins the authentication round", () => {
 		const mockPlayServerHand = jest.fn().mockImplementationOnce(() => "rock");
 		const mockRequest = {
-			query: {
-				rps: "scissor",
+			headers: {
+				authorization: "scissor",
 			},
 		};
 
@@ -36,8 +36,8 @@ describe("rpsAuth", () => {
 	it("should throw error, if the result is a tie", () => {
 		const mockPlayServerHand = jest.fn().mockImplementationOnce(() => "rock");
 		const mockRequest = {
-			query: {
-				rps: "rock",
+			headers: {
+				authorization: "rock",
 			},
 		};
 		expect(() => {
@@ -51,8 +51,8 @@ describe("rpsAuth", () => {
 
 	it("should throw an error, if 'rps' is not a valid option", () => {
 		const mockRequest = {
-			query: {
-				rps: "spock",
+			headers: {
+				authorization: "spock",
 			},
 		};
 
@@ -68,8 +68,8 @@ describe("rpsAuth", () => {
 	it("should call the next middleware if the Client wins the authentication round", () => {
 		const mockPlayServerHand = jest.fn().mockImplementationOnce(() => "paper");
 		const mockRequest = {
-			query: {
-				rps: "scissor",
+			headers: {
+				authorization: "scissor",
 			},
 		};
 		const mockNext = jest.fn();
