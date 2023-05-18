@@ -33,7 +33,7 @@ describe("rpsAuth", () => {
 		}).toThrow("Server: rock vs Client: scissor");
 	});
 
-	it("should throw error, if the result is a tie, and the authentication is not permissive", () => {
+	it("should throw error, if the result is a tie", () => {
 		const mockPlayServerHand = jest.fn().mockImplementationOnce(() => "rock");
 		const mockRequest = {
 			query: {
@@ -63,24 +63,6 @@ describe("rpsAuth", () => {
 				jest.fn()
 			);
 		}).toThrow("Unknown RPSAuth Hand: spock");
-	});
-
-	it("should call the next middleware, if the result is a tie and the authentication is permissive", () => {
-		const mockPlayServerHand = jest.fn().mockImplementationOnce(() => "paper");
-		const mockRequest = {
-			query: {
-				rps: "paper",
-				permissive: "true",
-			},
-		};
-		const mockNext = jest.fn();
-
-		authenticate(mockPlayServerHand, options, combinations)(
-			mockRequest,
-			jest.fn(),
-			mockNext
-		);
-		expect(mockNext).toHaveBeenCalledTimes(1);
 	});
 
 	it("should call the next middleware if the Client wins the authentication round", () => {
