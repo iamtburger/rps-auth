@@ -21,3 +21,9 @@ app.get("/", (req, res) => {
 ```
 
 Then the Client simply needs to set the chosen _hand_ in the `Authorization` header.
+
+Valid _hands_ are:
+
+- rock
+- paper
+- scissor
