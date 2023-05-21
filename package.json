@@ -1,6 +1,6 @@
 {
 	"name": "rpsauth",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Rock-Paper-Scissor Auth - Truly disruptive authentication",
 	"main": "index.js",
 	"scripts": {
